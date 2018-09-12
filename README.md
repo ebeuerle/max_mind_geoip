@@ -4,7 +4,7 @@ Version: *1.0*
 Author: *Eddie Beuerlein*
 
 ### Summary
-
+Script iterates through Apache log file.
 
 ### Requirements and Dependencies
 
