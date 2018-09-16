@@ -4,14 +4,19 @@ from clfparser import CLFParser
 
 class GeoIP_apache():
     def __init__(self):
-        #config = lib.ConfigHelper()
         self.file = lib.FileController()
+        self.geoip_data = lib.GeoIPController()
+        self.sanity = lib.Sanity()
         #sys.tracebacklimit = 0
 
     def run(self):
         self.apache_file = self.file.read_file()
-        clfParts = CLFParser.logParts(apache_line,'%h %r')
-        print clfParts
+        for line in self.apache_file:
+            clfParts = CLFParser.logParts(line,'%h %r')
+            if self.sanity.match_regex(clfParts[1]):
+                pass
+            else
+                print clfParts
 
 def main():
     #sys.stdout = lib.Logger(logging.info)
