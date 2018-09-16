@@ -20,4 +20,4 @@ def main():
     top_geoip_apache.run()
 
 if __name__ == "__main__":
-main()
+    main()
