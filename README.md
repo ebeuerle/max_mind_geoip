@@ -4,18 +4,16 @@ Version: *1.0*
 Author: *Eddie Beuerlein*
 
 ### Summary
-Script iterates through Apache log file.
+Script iterates through Apache log file, then looks up the IP addresses in GeoIP database.
 
 ### Requirements and Dependencies
 
 1. Python 2.7.10 or newer
 
-2. OpenSSL 1.0.2 or newer
-
-3.
+2. CLFParser from PiPy
 
 ```
-pip install
+pip install cflparser
 
 ```
 
@@ -23,7 +21,6 @@ pip install
 
 1. Navigate to */configs/configs.yml*
 
-2. Fill out your api key pair
 
 ### Run
 
