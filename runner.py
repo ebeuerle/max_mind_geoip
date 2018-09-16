@@ -9,7 +9,7 @@ class GeoIP_apache():
         #sys.tracebacklimit = 0
 
     def run(self):
-        self.apache_line = self.file.read_file()
+        self.apache_file = self.file.read_file()
         clfParts = CLFParser.logParts(apache_line,'%h %r')
         print clfParts
 

@@ -10,11 +10,15 @@ Script iterates through Apache log file, then looks up the IP addresses in GeoIP
 
 1. Python 2.7.10 or newer
 
-2. CLFParser from PiPy
+2. CLFParser
 
 ```
 pip install cflparser
 
+```
+3. GeoIP2 APIs
+```
+pip install geoip2
 ```
 
 ### Configuration

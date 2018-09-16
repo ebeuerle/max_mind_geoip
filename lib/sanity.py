@@ -13,13 +13,13 @@ class Sanity(object):
           "user-images",
           "static",
           "robots.txt",
-          "favicon.ico"
-          ".rss$",
-          ".atom$"
+          "favicon.ico",
+          ".rss",
+          ".atom"
         ]
         gotMatch = False
         for regex in regexList:
-            match = re.search(regex,line)
+            match = re.search(regex,request)
             if match:
                 gotMatch = True
                 break
