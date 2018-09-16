@@ -10,7 +10,8 @@ class GeoIP_apache():
 
     def run(self):
         self.apache_line = self.file.read_file()
-
+        clfParts = CLFParser.logParts(apache_line,'%h %r')
+        print clfParts
 
 def main():
     #sys.stdout = lib.Logger(logging.info)
