@@ -8,7 +8,7 @@ Script iterates through Apache log file, then looks up the IP addresses in GeoIP
 
 ### Requirements and Dependencies
 
-1. Python 2.7.10 or newer
+1. Python 2.7.10 or newer (not Python 3.x)
 
 2. CLFParser
 
