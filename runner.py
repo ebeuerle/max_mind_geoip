@@ -16,7 +16,8 @@ class GeoIP_apache():
             if self.sanity.match_regex(clfParts[1]):
                 pass
             else:
-                print clfParts
+                self.resp = self.geoip_data.query_geoip_db(clfParts[0])
+                print self.resp.country.name, self.resp.subdivisions.most_specific.name
 
 def main():
     #sys.stdout = lib.Logger(logging.info)
