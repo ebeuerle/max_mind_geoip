@@ -15,7 +15,7 @@ class GeoIP_apache():
             clfParts = CLFParser.logParts(line,'%h %r')
             if self.sanity.match_regex(clfParts[1]):
                 pass
-            else
+            else:
                 print clfParts
 
 def main():
