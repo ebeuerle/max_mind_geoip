@@ -10,6 +10,7 @@ class GeoIP_apache():
         #sys.tracebacklimit = 0
 
     def run(self):
+        geo = dict()
         self.apache_file = self.file.read_file()
         for line in self.apache_file:
             clfParts = CLFParser.logParts(line,'%h %r')
@@ -17,6 +18,7 @@ class GeoIP_apache():
                 pass
             else:
                 self.resp = self.geoip_data.query_geoip_db(clfParts[0])
+                geo[clfParts[0]] = {'country' : self.resp.country.name, 'state' : self.resp.subdivisions.most_specific.name}
                 print self.resp.country.name, self.resp.subdivisions.most_specific.name
 
 def main():
