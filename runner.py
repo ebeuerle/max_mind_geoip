@@ -18,8 +18,8 @@ class GeoIP_apache():
                 pass
             else:
                 self.resp = self.geoip_data.query_geoip_db(clfParts[0])
-                geo[clfParts[0]] = {'country' : self.resp.country.name, 'state' : self.resp.subdivisions.most_specific.name}
-                print self.resp.country.name, self.resp.subdivisions.most_specific.name
+                geo[clfParts[0]] = {'country' : self.resp.country.name, 'state' : self.resp.subdivisions.most_specific.name, 'request' : clfParts[1]}
+        print geo
 
 def main():
     #sys.stdout = lib.Logger(logging.info)
