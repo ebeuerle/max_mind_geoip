@@ -11,6 +11,14 @@ class ReportController(object):
             return self.usa[state].append(request_m)
         return self.other_country[country_name].append(request_m)
 
+    def find_most_visited_sites(self, request_list):
+        cnt = Counter(request_list)
+        top_2 = cnt.most_common(2)
+
+        if top_2[0][0] == "/":
+            return top_2[1][0]
+        return top_2[0][0]
+
     def calculate_top_10(self, r_type):
         if r_type == "country":
             modified_dict = OrderedDict(sorted(self.other_country.items(), key=lambda item: len(item[1]), reverse=True)[:10])
@@ -18,7 +26,7 @@ class ReportController(object):
             modified_dict = OrderedDict(sorted(self.usa.items(), key=lambda item: len(item[1]), reverse=True)[:10])
 
         for k, v in modified_dict.iteritems():
-            modified_dict[k] = (len(v), max(v,key=v.count))
+            modified_dict[k] = (len(v), self.find_most_visited_sites(v))
         return modified_dict
 
     def report(self, r_type):
