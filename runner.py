@@ -23,18 +23,19 @@ class GeoIP_apache():
             modified_dict = OrderedDict(sorted(self.usa.items(), key=lambda item: len(item[1]), reverse=True)[:10])
 
         for k, v in modified_dict.iteritems():
-            modified_dict[k] = max(v,key=v.count)
+            modified_dict[k] = (len(v), max(v,key=v.count))
         return modified_dict
 
     def report(self, r_type):
+        result = ""
         if r_type == "country":
             data = self.calculate_top_10("country")
         else:
             data = self.calculate_top_10("usa")
 
         for k, v in data.iteritems():
-            print "location: %s \t\t %s" % (k, v)
-        return None
+            result += "location: %s \t\t total visits:%s \t\t most visited site: %s" % (k, v[0], v[1])
+        return result
 
     def run(self):
         geo = defaultdict(list)
@@ -57,6 +58,6 @@ def main():
     #sys.stderr = lib.Logger(logging.warning)
     top_geoip_apache = GeoIP_apache()
     top_geoip_apache.run()
-    
+
 if __name__ == "__main__":
     main()
