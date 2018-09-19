@@ -1,5 +1,6 @@
 import lib
 from clfparser import CLFParser
+from collections import defaultdict
 
 class GeoIP_apache():
     def __init__(self):
