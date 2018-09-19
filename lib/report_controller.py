@@ -29,5 +29,5 @@ class ReportController(object):
             data = self.calculate_top_10("usa")
 
         for k, v in data.iteritems():
-            result += "location: %s \t\t total visits:%s \t\t most visited site: %s" % (k, v[0], v[1])
+            result += "location: %s \t\t total visits:%s \t\t most visited site: %s \n" % (k, v[0], v[1])
         return result
