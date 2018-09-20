@@ -22,8 +22,10 @@ class GeoIP_apache():
                     resp = self.geoip_data.query_geoip_db(clfParts[0])
                 except:
                     pass
-                self.build_report.build_dictionary(resp.country.name, resp.subdivisions.most_specific.name, clfParts[1])
+                self.build_report.build_dictionary(resp.country.name, resp.subdivisions.most_specific.name, clfParts[1].split(" ")[1])
+        print "Top 10 for visitors"
         print self.build_report.report("country")
+        print "Top 10 US states"
         print self.build_report.report("usa")
 
 def main():
